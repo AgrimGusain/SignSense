@@ -9,7 +9,7 @@ The project demonstrates how **quantum computing** can be applied in **real-worl
 
 ## 🎥 Project Demo Video:
 
-<video src="https://github.com/AgrimGusain/SignSense/raw/main/VID1.mp4" controls="controls" width="600">
+<video src="https://github.com/AgrimGusain/SignSense/main/VID1.mp4" controls="controls" width="600">
   Your browser does not support the video tag.
 </video>
 
