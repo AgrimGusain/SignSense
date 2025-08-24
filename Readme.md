@@ -8,7 +8,7 @@ The classical YOLOv8n backbone is enhanced by inserting a QNN block into its fea
 The project demonstrates how **quantum computing** can be applied in **real-world computer vision** tasks like object detection, while still running efficiently on classical hardware.
 
 🎥 **Project Demo Video:**
-[![Watch the video](https://raw.githubusercontent.com/AgrimGusain/SignSense/main/Thumbnail.jpg)](https://raw.githubusercontent.com/AgrimGusain/SignSense/main/Sensor _VID1.mp4
+[![Watch the video](https://raw.githubusercontent.com/AgrimGusain/SignSense/main/Thumbnail.jpg)](https://raw.githubusercontent.com/AgrimGusain/SignSense/main/VID1.mp4)
 
 
 
