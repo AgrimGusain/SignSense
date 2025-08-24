@@ -1,0 +1,40 @@
+Project Summary: Sign Language Letter Detection with Quantum Neural Network Denoiser
+
+Overview:
+This project is a sign language letter detection and recognition system that combines classical deep learning and quantum machine learning techniques to improve detection accuracy, especially in noisy environments.
+
+Architecture and Components:
+
+1. Data:
+- The dataset consists of paired noisy and clean images organized in labeled folders.
+- The NoiseDataset class loads these images, resizing them to 32x32 RGB tensors for training the denoiser.
+
+2. Models:
+- Classical Detection Model:
+  - A YOLOv8-based object detection model (weights in best_pro.pt) is used to detect sign language letters from webcam frames.
+  - The detect.py script runs inference with this model, draws bounding boxes, and buffers detected letters.
+
+- Quantum Neural Network (QNN) Denoiser:
+  - Implemented in quantum_preprocessor.py as the DenoiseQNN class.
+  - Hybrid quantum-classical architecture:
+    - A convolutional layer reduces input channels to 4 qubits.
+    - A quantum circuit with 4 qubits applies parameterized rotations and entanglement using PennyLane.
+    - The quantum circuit outputs expectation values of PauliZ operators.
+    - A classical decoder network reconstructs a denoised 3x32x32 image.
+  - Trained using paired noisy and clean images with MSE loss and Adam optimizer over 5 epochs (Qnn_train.py).
+  - The trained model is saved as qnn_denoiser.pth.
+
+3. Detection Pipeline:
+- detect.py runs classical detection using YOLO.
+- detect_q.py extends this by optionally applying the QNN denoiser on low-resolution frames before detection.
+- Due to resolution constraints, detection is performed on the original frame even when denoising is enabled.
+
+4. Post-processing:
+- postprocess.py buffers detected letters to reduce noise and repeated detections.
+- Applies a simple NLP correction by matching detected letter sequences to a predefined vocabulary using difflib.
+- Outputs corrected words after user pauses in signing.
+
+Summary:
+The project integrates a classical YOLOv8 detection model with a quantum-classical hybrid denoising autoencoder to improve sign language letter recognition from noisy inputs. It includes data loading, model training, inference pipelines, and post-processing with NLP correction to enhance output accuracy.
+
+This hybrid approach leverages quantum computing concepts for image denoising while maintaining robust classical detection and language correction components.
